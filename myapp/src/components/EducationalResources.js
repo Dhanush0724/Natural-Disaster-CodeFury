@@ -1,11 +1,23 @@
 import React from 'react';
+import useGeolocation from '../hooks/useGeolocation';
 
 const EducationalResources = () => {
+    const { location, error } = useGeolocation();
+
     return (
         <div className='flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6'>
             <h1 className='text-4xl font-extrabold text-gray-800 mb-6'>
                 Educational Resources
             </h1>
+            {error ? (
+                <p className='text-red-600'>{error}</p>
+            ) : (
+                <p className='text-xl text-gray-700'>
+                    {location.lat && location.lng
+                        ? `Your current location: Latitude ${location.lat}, Longitude ${location.lng}`
+                        : 'Fetching your location...'}
+                </p>
+            )}
             <section className='mb-8 w-full max-w-4xl'>
                 <h2 className='text-3xl font-bold text-gray-800 mb-4'>
                     Disaster Preparedness Guides
