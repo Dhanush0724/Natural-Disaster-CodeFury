@@ -1,8 +1,9 @@
-// src/HurricanePage.js
-
 import React from 'react';
 
 const HurricanePage = () => {
+  // URL of your hosted Streamlit app
+  const streamlitUrl = 'https://natural-disaster-codefury-b2wswuvw8vvvpoki5oenso.streamlit.app/'; // Replace with your actual URL
+
   return (
     <div className="p-4 max-w-3xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">Step-by-Step Guide to Hurricane Preparedness</h1>
@@ -59,6 +60,20 @@ const HurricanePage = () => {
             ></iframe>
             <p className="mt-2">What to Include in Your Emergency Kit - [Your Channel]</p>
           </div>
+        </div>
+      </section>
+
+      {/* Added Streamlit Map Section */}
+      <section className="mb-8">
+        <h2 className="text-xl font-semibold mb-2">Interactive Disaster Map</h2>
+        <div className="w-full h-96">
+          <iframe
+            src={streamlitUrl}
+            title="Disaster Events Map"
+            width="100%"
+            height="100%"
+            style={{ border: 'none' }}
+          />
         </div>
       </section>
     </div>
