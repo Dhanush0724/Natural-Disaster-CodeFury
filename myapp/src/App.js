@@ -50,7 +50,7 @@ import Header from './components/header';
 import Home from './components/home';
 import Study from './components/Study';
 import EducationalResources from './components/EducationalResources';
-
+import HurricanePage from './components/HurricanePage';
 import { AuthProvider } from './contexts/authContext';
 
 function App() {
@@ -78,6 +78,10 @@ function App() {
     {
       path: '/resources',
       element: <EducationalResources />,
+    },
+    {
+      path: '/hurricane',
+      element :<HurricanePage />,
     },
   ];
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import useGeolocation from '../hooks/useGeolocation';
+import { Link } from 'react-router-dom'; // Add this line
 
 const EducationalResources = () => {
     const { location, error } = useGeolocation();
@@ -23,10 +24,11 @@ const EducationalResources = () => {
                     Disaster Preparedness Guides
                 </h2>
                 <ul className='list-disc list-inside'>
-                    <li className='mb-2'>
-                        <a href="#" className='text-blue-600 hover:underline'>
+                    
+                <li className='mb-2'>
+                        <Link to="/hurricane" className='text-blue-600 hover:underline'>
                             Step-by-Step Guide to Hurricane Preparedness
-                        </a>
+                        </Link>
                     </li>
                     <li className='mb-2'>
                         <a href="#" className='text-blue-600 hover:underline'>
