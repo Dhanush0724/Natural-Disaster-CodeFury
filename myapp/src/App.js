@@ -1,29 +1,42 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import './App.css';
-import Home from './Home';
-import Study from './Study';
+import Login from "./components/auth/login";
+import Register from "./components/auth/register";
+
+import Header from "./components/header";
+import Home from "./components/home";
+import Study from "./components/Study";
+
+import { AuthProvider } from "./contexts/authContext";
+import { useRoutes } from "react-router-dom";
 
 function App() {
+  const routesArray = [
+    {
+      path: "*",
+      element: <Login />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+    {
+      path: "/home",
+      element: <Home />,
+    },
+    {
+      path :"/study",
+      element: <Study />,
+    },
+  ];
+  let routesElement = useRoutes(routesArray);
   return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <nav>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/study">Study</Link></li>
-            </ul>
-          </nav>
-        </header>
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/study" element={<Study />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Header />
+      <div className="w-full h-screen flex flex-col">{routesElement}</div>
+    </AuthProvider>
   );
 }
 

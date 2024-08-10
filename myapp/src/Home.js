@@ -1,10 +1,12 @@
 import React from 'react';
+import { useAuth } from './contexts/authContext';
 
 function Home() {
+  const { user } = useAuth();
+
   return (
     <div>
-      <h1>Home Page</h1>
-      <p>Welcome to the Home page.</p>
+      <h1 >Welcome, {user ? user.name : 'Guest'}!</h1>
     </div>
   );
 }
