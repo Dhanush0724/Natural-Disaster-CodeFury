@@ -6,8 +6,6 @@ from gdacs.api import GDACSAPIError, GDACSAPIReader
 # Initialize the GDACS API client
 client = GDACSAPIReader()
 
-# Function to fetch recent events and filter by those with coordinates
-
 
 def fetch_events_with_coordinates(limit=10):
     try:
@@ -39,7 +37,6 @@ event_type_colors = {
 
 # Add events to the map
 for event in events:
-    # Extract event details
     latitude = event['geometry']['coordinates'][1]
     longitude = event['geometry']['coordinates'][0]
     event_type = event.get('eventtype', 'Unknown')
@@ -54,7 +51,6 @@ for event in events:
                   f"Date: {event_date}")
 
     # Determine marker color based on event type
-    # Default to gray if type is unknown
     color = event_type_colors.get(event_type, 'gray')
 
     # Add a marker to the map
