@@ -11,7 +11,7 @@ Our application aims to enhance disaster readiness and response by providing use
 ### Prerequisites
 - Firebase account for authentication
 - Google Maps API key for location services
-- Node.js and npm for managing dependencies
+- Node.js and React for managing dependencies
 
 
 ## Usage
